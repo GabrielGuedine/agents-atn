@@ -1,0 +1,20 @@
+# Catálogo de Alterações
+
+[Backend]
+* app/controllers/application_controller.rb
+# Alteração do método "autenticacao_projudi";
+
+[Frontend]
+* app/assets/javascripts/angularjs/controllers/processo/ShowProcessoCtrl.js.erb
+# Alteração no tratamento de erro (regex para extrair mensagem do exception + "Tente fazer o login novamente");
+
+* app/assets/javascripts/angularjs/templates/processo/recursos_associados.html.erb
+# Alteração do tooltip do div (data-tooltip: estático → dinâmico);
+# Alteração do botão (ng-class → ng-disabled + class estática);
+# Alteração do tooltip do div (data-tooltip: estático → dinâmico);
+# Alteração do botão (ng-class → ng-disabled + class estática);
+
+## Classificação UST
+Backend: 1 item -> 1 P (1-3 itens, 16 USTs)
+Frontend: 6 itens -> 1 M (4-6 itens, 14 USTs)
+Total: 7 itens, 30 USTs

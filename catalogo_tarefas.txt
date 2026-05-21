@@ -1,0 +1,80 @@
+[backend]
+* atena4/app/controllers/projudi_controller.rb
+# Criação do método "sincronizar_movimentos_projudi";
+# Criação do método "sincronizar_movimentos_projudi_params";
+
+* atena4/app/services/hermes/projudi_service.rb
+# Criação do método "sincronizar_movimentos_projudi";
+# Criação do método "buscar_serventia_id";
+# Criação do método "buscar_id_processo";
+
+* atena4/config/routes.rb
+# Criação da rota "POST :sincronizar_movimentos_projudi";
+
+* atena4/spec/services/hermes/sincronizar_movimentos_projudi_spec.rb (NOVO ARQUIVO)
+# Criação do describe "#sincronizar_movimentos_projudi" (5 testes);
+
+* atena4/spec/services/hermes/projudi_service_spec.rb
+# Criação do describe "#buscar_serventia_id" (3 testes);
+# Criação do describe "#buscar_id_processo" (3 testes);
+
+[frontend]
+* atena4/app/assets/javascripts/angularjs/controllers/processo/ShowProcessoCtrl.js.erb
+# Criação do método "sincronizarMovimentosProjudi";
+# Adição da variável "ctrl.sincronizandoMovimentosProjudi";
+
+* atena4/app/assets/javascripts/angularjs/factories/hermes/HermesResource.js.erb
+# Criação do resource "sincronizar_movimentos_projudi";
+
+* atena4/app/assets/javascripts/templates/processo/recursos_associados.html.erb
+# Alteração da exibição da última atualização;
+# Adição do botão de sincronização com loading;
+# Adição da mensagem "Nenhum movimento encontrado" com botão Atualizar;
+# Alteração da condição ng-if para exibir movimentos;
+
+---
+
+[backend] Criação ou alteração de funcionalidade no back-end do sistema.
+Descrição: Envolve a criação ou alteração da funcionalidade no lado servidor.
+Perfil Profissional:Time de Desenvolvimento.
+Produto: Código da implementação incorporado ao sistema e adicionado ao repositório, ou sistema de controle de versão.
+Unidade de Medida: Unidade elementar CRUD associada
+Registro: Descrever título explicativo. Deve ser seguido o padrão de commit fornecido para mapeamento da(s) atividade(s).
+UST:
+Backend P Até 3 itens de backend estimados 16 USTs
+Backend M De 4 a 6 itens de backend estimados 38 USTs
+Backend G De 7 a 9 itens de backend estimados 62 USTs
+Backend GG De 10 a 18 itens de backend estimados 106 USTs
+
+[frontend] Criação ou alteração de funcionalidade ou item de usabilidade no front end.
+Descrição: Envolve a criação ou alteração completa da funcionalidade ou item de usabilidade no lado cliente.
+Perfil Profissional:Desenvolvedor Web-Perfl 2.1 (full stack) ou Perfl 2.2 (front end) ou Desenvolvedor Delphi.
+Produto: Código da implementação incorporado ao sistema e adicionado ao repositório, ou sistema de controle de versão.
+Unidade de Medida: Quantidade de funcionalidade.
+Registro: Descrever título explicativo. Deve ser seguido o padrão de commit fornecido para mapeamento da(s) atividade(s).
+UST:
+Frontend P Até 3 itens de frontend estimados 07 USTs
+Frontend M De 4 a 6 itens de frontend estimados 14 USTs
+Frontend G De 7 a 9 itens de frontend estimados 22 USTs
+Frontend GG De 10 a 18 itens de frontend estimados 37 USTs
+
+---
+
+Total de itens backend estimados: 20 itens (Backend GG - 106 USTs)
+Total de itens frontend estimados: 4 itens (Frontend M - 14 USTs)
+
+Arquivos novos criados no projeto atena4:
+- agents-docs/AGENTS.md
+- agents-docs/frontend/AGENTS.md
+- agents-docs/INSTRUCOES_CATALOGO.md
+- agents-docs/opencode.json
+- spec/services/hermes/sincronizar_movimentos_projudi_spec.rb
+
+Alterações em arquivos existentes:
+- app/controllers/projudi_controller.rb (2 métodos criados)
+- app/services/hermes/projudi_service.rb (3 métodos criados)
+- config/routes.rb (1 rota criada)
+- spec/services/hermes/projudi_service_spec.rb (2 describes, 6 testes)
+- app/assets/javascripts/angularjs/controllers/processo/ShowProcessoCtrl.js.erb (1 método, 1 variável)
+- app/assets/javascripts/angularjs/factories/hermes/HermesResource.js.erb (1 resource)
+- app/assets/javascripts/templates/processo/recursos_associados.html.erb (4 alterações)
