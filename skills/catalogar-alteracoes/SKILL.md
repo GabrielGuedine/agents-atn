@@ -17,29 +17,41 @@ Utilize esta skill quando o usuário pedir para catalogar as atividades realizad
 ## Comandos git
 
 ```bash
+# Preparar ambiente
 cd "$(git rev-parse --show-toplevel 2>/dev/null || echo .)"
-git add -N .
+git add -N .  # Arquivos novos aparecem no diff
 
 # Ver alterações
 git diff HEAD --stat
+git diff HEAD
 
-# Backend
-git diff HEAD -- app/controllers/ app/services/ app/models/ config/ app/errors/ app/helpers/ app/utils/ app/workers/
+# Backend: controllers, services, models, config, errors, helpers, utils, workers, tasks, initializers, e describes de testes spec
+git diff HEAD -- app/controllers/ app/services/ app/models/ config/ app/errors/ app/helpers/ app/utils/ app/workers/ spec/
 
-# Frontend
+# Frontend: AngularJS e views
 git diff HEAD -- app/assets/javascripts/ app/views/
-
-# Testes
-git diff HEAD -- spec/
 ```
 
 ## Contagem de itens (1 item = 1 unidade)
 
-**Backend:** Novos métodos (`def`), métodos alterados, describes RSpec (ignorar `context`/`it`), relações em models, novas rotas. `config/application.rb` e `config/database.yml` também contam.
+**Backend:** 
+- Novos métodos (`def`)
+- Métodos alterados
+- Novos Describes RSpec (ignorar `context`, `it`, e a linha `RSpec.describe NomeDaClasse, type: :tipo_do_teste`)
+- SEMPRE VERIFIQUE: **Describe existente com alterações:** Se um bloco `describe` já existia e houve qualquer alteração dentro dele (novos `it`, `context`, mudanças em `let`/`before`/`after`/etc.), contabilizar como "Alteração no describe do método 'método'"
+- Relações em models
+- Novas rotas
+- `config/application.rb` e `config/database.yml` também contam
+- Alterações em `spec/**/*.rb` referentes a describes também contam como backend.
 
-**Frontend:** Novos métodos AngularJS, métodos alterados, alterações .js/.js.erb, novos itens HTML.
+**Frontend:** 
+- Novos métodos AngularJS
+- Métodos alterados
+- Alterações .js/.js.erb
+- Novos itens HTML.
 
-**Componente:** Alterações de plugins/bibliotecas (ex.: `config/initializers/`, `lib/tasks/`).
+**Componente:** 
+- Alterações de plugins/bibliotecas (ex.: `config/initializers/`, `lib/tasks/`).
 
 ## Classificação UST
 
@@ -63,21 +75,59 @@ Conteúdo:
 # Catálogo de Alterações
 
 [Backend]
-* caminho/arquivo.rb
-# Criação do método "nome";
-# Alteração do método "outro";``
+- caminho/arquivo.rb
+1. Criação do método "nome";
+2. Alteração do método "outro";``
+
+- spec/caminho/arquivo.rb
+1. Criação do teste describe "nome";
+2. Alteração no describe do método "metodo_x";``
 
 [Componente]``
-* Gemfile
-# Adição/remoção de plugin/biblioteca;
+- Gemfile
+1. Adição/remoção de plugin/biblioteca;
 
 [Frontend]
-* caminho/arquivo.js
-# Criação do método "nome";
+- caminho/arquivo.js
+1. Criação do método "nome";
 
 ## Classificação UST
 Backend: N itens -> 1 GG (10-18 itens, 106 USTs)
 Componente: N itens -> 1 componente (2 USTs)
 Frontend: N itens -> conforme classificação
 Total: X USTs
+
+## Sugestão de commit
+
+Com base nas alterações catalogadas, gere um título conciso e uma lista das principais alterações. Use português, voz ativa e imperativo (ex.: "Cria", "Adiciona", "Refatora").
+
+Formato:
 ```
+## Sugestão de commit
+
+Título: <frase curta explicando o propósito>
+
+Principais alterações:
+- <alteração relevante 1>
+- <alteração relevante 2>
+- <alteração relevante 3>
+- ...
+
+
+## Preenchimento do Merge Request Template
+
+Após gerar o catálogo, preencha o template de MR disponível em `./MERGE_REQUEST_TEMPLATE.md` e **anexe-o ao final** do arquivo de catálogo gerado (`catalogo_tarefas_<branch>.txt`).
+
+Regras de preenchimento:
+
+1. **Issues relacionadas** — Vincular a issue/tarefa principal. Se houver múltiplas, listar abaixo.
+2. **Descrição** — Extrair o título da issue ou do commit como título. Preencher os tópicos com base na Sugestão de commit gerada.
+3. **O que foi feito?** — Listar cada alteração relevante do catálogo, agrupada por arquivo.
+4. **Alterações no banco de dados** — Se houver criação/alteração de tabelas, colunas, índices ou schemas, descrever. Caso contrário, manter como "-".
+5. **Como testar?** — Descrever passos funcionais. Se houver worker, incluir comando para executá-lo manualmente. Se houver testes, incluir `bundle exec rspec <caminho>`.
+6. **Evidências** — Deixar seção vazia para preenchimento manual.
+7. **Notas adicionais** — Incluir observações sobre dependências, migrações, necessidade de rebuild, etc.
+8. **Fora do escopo** — Listar o que não foi contemplado nas alterações.
+
+Os itens do catálogo (Backend, Frontend, Componente) e a classificação UST devem ser mantidos **antes** do template preenchido.
+

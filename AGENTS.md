@@ -60,7 +60,7 @@ Guia para agentes (humanos ou IA) atuarem com segurança e consistência no back
 ## 8) Validação mínima antes de concluir mudança
 - Se alteração em Ruby puro/backend, validar com RuboCop nos arquivos alterados:
   - `bundle exec rubocop <arquivos_rb_alterados>`
-- O agente DEVE rodar `bundle exec rspec` e `bundle exec rubocop` após qualquer alteração em arquivos de código ou testes. O ambiente (mise) já está configurado para tal — basta executar os comandos diretamente.
+- O agente DEVE rodar `bundle exec rspec` e `bundle exec rubocop` após qualquer alteração em arquivos de código ou testes. O ambiente (mise) já está configurado para tal — basta executar os comandos diretamente ou utilizar mise exec.
 
 ## 9) Convenções de CI/CD relevantes
 - Pipeline GitLab roda RSpec (sem projudi_integration por padrão), RuboCop e Sonar.
