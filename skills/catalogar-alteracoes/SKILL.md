@@ -64,13 +64,19 @@ Algoritmo: `GG = floor(N / 18)`, resto = `N % 18`. Se resto = 0, não criar extr
 
 ## Formato do arquivo de saída
 
-SEMPRE use esse exato exemplo de template:
+SEMPRE use este padrão:
 
 ```
-.agents/catalogo_tarefas_<branch>.txt
+.agents/catalogo_tarefas/<timestamp>_catalogo_tarefas_<branch>.txt
 ```
 
-Conteúdo:
+Onde `<timestamp>` é o horário atual no formato `YYYYMMDD_HHMM` e `<branch>` é o nome da branch atual (sem caracteres especiais, substituir `/` por `-`).
+
+### Versionamento automático
+
+Se já existir um arquivo com o mesmo nome, o timestamp garante que cada execução gere um arquivo novo. **Nunca substituir** um arquivo existente.
+
+### Template de conteúdo
 ```
 # Catálogo de Alterações
 
@@ -116,7 +122,7 @@ Principais alterações:
 
 ## Preenchimento do Merge Request Template
 
-Após gerar o catálogo, preencha o template de MR disponível em `./MERGE_REQUEST_TEMPLATE.md` e **anexe-o ao final** do arquivo de catálogo gerado (`catalogo_tarefas_<branch>.txt`).
+Após gerar o catálogo, preencha o template de MR disponível em `./MERGE_REQUEST_TEMPLATE.md` e **anexe-o ao final** do arquivo de catálogo gerado (`.agents/catalogo_tarefas/<timestamp>_catalogo_tarefas_<branch>.txt`).
 
 Regras de preenchimento:
 

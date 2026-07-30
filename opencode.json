@@ -3,5 +3,20 @@
     "skill": {
       "*": "allow"
     }
+  },
+  "agent": {
+    "code-review": {
+      "description": "Revisa alterações como líder técnico sênior — analisa diff, qualidade, segurança, regras de negócio (Atena4: tramitação documental, integrações, AngularJS) e autorização",
+      "mode": "subagent",
+      "permission": {
+        "edit": "deny",
+        "write": "deny",
+        "read": "allow",
+        "grep": "allow",
+        "glob": "allow",
+        "bash": "allow"
+      },
+      "prompt": "Você é um líder técnico sênior especializado em Rails 4.2 e AngularJS. Use a skill code-review para analisar as alterações do projeto. Siga o SKILL.md da skill code-review rigorosamente: prepare o diff com git add -N . e git diff HEAD, analise cada arquivo alterado contra os checklists técnicos e de regras de negócio, e gere o arquivo de saída em .agents/code_review/<timestamp>_code_review_<branch>.txt."
+    }
   }
 }

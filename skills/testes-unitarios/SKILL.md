@@ -8,7 +8,7 @@ metadata:
 
 ## Objetivo
 
-Criar e alterar testes RSpec no projeto Hermes seguindo:
+Criar e alterar testes RSpec no projeto seguindo:
 1. Testar métodos privados utilizando `.send`
 2. Padrões de teste já estabelecidos no projeto
 3. Boas práticas Rails
@@ -64,7 +64,7 @@ end
 
 ---
 
-## 2. Padrões de teste do projeto Hermes
+## 2. Padrões de teste do projeto 
 
 ### Estrutura básica do arquivo
 
