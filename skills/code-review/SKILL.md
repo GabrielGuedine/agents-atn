@@ -32,6 +32,19 @@ git diff HEAD -- app/controllers/ app/services/ app/models/ app/interactors/ con
 git diff HEAD -- app/assets/javascripts/angularjs/ app/views/
 ```
 
+## Verificação de MR existente na branch
+
+Antes de iniciar a revisão, verificar se a branch atual já possui um merge request com discussões abertas:
+
+```bash
+# Ver discussões não resolvidas do MR da branch atual
+glab mr view --unresolved
+```
+
+- Se o comando retornar discussões abertas, **levá-las em consideração na revisão** e incorporá-las ao parecer (pontos de atenção e blockers).
+- Se não houver MR, ou não houver discussões pendentes, prosseguir normalmente com a revisão do `git diff`.
+- Registrar no parecer final se havia discussões abertas pré-existentes e se foram endereçadas.
+
 ## Checklist de revisão técnica
 
 ### Boas práticas Rails 4.2 / Ruby 2.4

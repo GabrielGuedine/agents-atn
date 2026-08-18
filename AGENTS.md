@@ -27,6 +27,7 @@ Guia para agentes (humanos ou IA) atuarem com segurança e consistência no back
   2. `FORCE_DB_RESTORE=true bundle exec rake db:test:prepare` (força recriação)
   3. `bundle exec rake db:test:force_prepare` (CI)
 - Antes de tarefas de dados/schema, confirmar submódulo atualizado: `git submodule update --init --recursive`.
+- NUNCA FAÇA INSERÇÕES NEM DELEÇÕES DIRETO NO BANCO
 
 ## 5) Organização técnica relevante
 - Controllers: `app/controllers/**`
